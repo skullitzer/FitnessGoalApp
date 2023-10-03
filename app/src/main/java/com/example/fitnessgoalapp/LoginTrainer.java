@@ -24,7 +24,6 @@ public class LoginTrainer extends AppCompatActivity {
     Button buttonLogin;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
-    TextView textView;
 
     @Override
     public void onStart() {
@@ -47,14 +46,6 @@ public class LoginTrainer extends AppCompatActivity {
         editTextPassword = findViewById(R.id.password);
         buttonLogin = findViewById(R.id.btn_login);
         progressBar = findViewById(R.id.progressBar);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Registration.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
