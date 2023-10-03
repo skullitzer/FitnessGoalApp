@@ -8,6 +8,7 @@
     <string name="click_to_register">Click To Register</string>
     <string name="logout">logout</string>
     <string name="welcome">Welcome</string>
-    <string name="trainer">Trainer</string>
     <string name="user">User</string>
+    <string name="trainer">Trainer</string>
+    <string name="trainer_login">Trainer Login</string>
 </resources>
