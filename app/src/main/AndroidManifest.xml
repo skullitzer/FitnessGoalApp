@@ -15,6 +15,12 @@
         android:theme="@style/Theme.Material3.Light"
         tools:targetApi="31">
         <activity
+            android:name=".AssignExercises"
+            android:exported="false" />
+        <activity
+            android:name=".TrainerMain"
+            android:exported="false" />
+        <activity
             android:name=".UserData"
             android:exported="false" />
         <activity
