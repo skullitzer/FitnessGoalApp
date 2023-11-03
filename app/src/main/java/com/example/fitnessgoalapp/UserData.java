@@ -1,71 +1,55 @@
 package com.example.fitnessgoalapp;
 
-public class UserData {
-    private String firstName;
-    private String lastName;
-    private float height;
-    private float weight;
-    private int age;
-    private String healthCondition;
+import androidx.appcompat.app.AppCompatActivity;
 
-    public UserData() {
-        // Default constructor required for Firebase
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class UserData extends AppCompatActivity {
+    private EditText firstNameEditText, lastNameEditText, heightEditText, weightEditText, ageEditText, healthConditionEditText;
+    private Button saveButton;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_user_data);
+
+        firstNameEditText = findViewById(R.id.firstNameEditText);
+        lastNameEditText = findViewById(R.id.lastNameEditText);
+        heightEditText = findViewById(R.id.heightEditText);
+        weightEditText = findViewById(R.id.weightEditText);
+        ageEditText = findViewById(R.id.ageEditText);
+        healthConditionEditText = findViewById(R.id.healthConditionEditText);
+        saveButton = findViewById(R.id.saveButton);
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveUserData();
+                Intent intent = new Intent(getApplicationContext(), GoalChoice.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
-    public UserData(String firstName, String lastName, float height, float weight, int age, String healthCondition) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.height = height;
-        this.weight = weight;
-        this.age = age;
-        this.healthCondition = healthCondition;
-    }
+    private void saveUserData() {
+        String firstName = firstNameEditText.getText().toString();
+        String lastName = lastNameEditText.getText().toString();
+        String height = heightEditText.getText().toString();
+        String weight = weightEditText.getText().toString();
+        String age = ageEditText.getText().toString();
+        String healthCondition = healthConditionEditText.getText().toString();
 
-    public String getFirstName() {
-        return firstName;
-    }
+        // Perform validation if needed
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+        // You can save the user data to a database or do any other necessary actions here
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public float getHeight() {
-        return height;
-    }
-
-    public void setHeight(float height) {
-        this.height = height;
-    }
-
-    public float getWeight() {
-        return weight;
-    }
-
-    public void setWeight(float weight) {
-        this.weight = weight;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getHealthCondition() {
-        return healthCondition;
-    }
-
-    public void setHealthCondition(String healthCondition) {
-        this.healthCondition = healthCondition;
+        // For this example, let's display a toast message
+        Toast.makeText(this, "User data saved", Toast.LENGTH_SHORT).show();
     }
 }
