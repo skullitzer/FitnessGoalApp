@@ -1,4 +1,9 @@
 package com.example.fitnessgoalapp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -47,9 +52,17 @@ public class UserData extends AppCompatActivity {
 
         // Perform validation if needed
 
-        // You can save the user data to a database or do any other necessary actions here
+        // Save user data to Firebase Realtime Database
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("users").push();
+        userRef.child("firstName").setValue(firstName);
+        userRef.child("lastName").setValue(lastName);
+        userRef.child("height").setValue(height);
+        userRef.child("weight").setValue(weight);
+        userRef.child("age").setValue(age);
+        userRef.child("healthCondition").setValue(healthCondition);
 
-        // For this example, let's display a toast message
+        // Display a Toast message
         Toast.makeText(this, "User data saved", Toast.LENGTH_SHORT).show();
     }
+
 }
