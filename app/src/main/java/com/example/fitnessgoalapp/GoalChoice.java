@@ -28,12 +28,23 @@ public class GoalChoice extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create an Intent to start the SecondActivity
-             //   Intent intent = new Intent(GoalChoice.this, SecondActivity.class);
-              //  startActivity(intent);
+                // Get the selected item from the Spinner
+                String selectedGoal = goalSpinner.getSelectedItem().toString();
+
+                // Create an Intent to start the appropriate activity based on the selected goal
+                Intent intent;
+                if ("Lose Weight".equalsIgnoreCase(selectedGoal)) {
+                    intent = new Intent(GoalChoice.this, LoseWeightActivity.class);
+                } else if ("Gain Muscle".equalsIgnoreCase(selectedGoal)) {
+                    intent = new Intent(GoalChoice.this, GainMuscleActivity.class);
+                } else {
+                    // Handle other cases or show an error message
+                    return;
+                }
+
+                // Start the activity
+                startActivity(intent);
             }
         });
-
-
     }
 }
