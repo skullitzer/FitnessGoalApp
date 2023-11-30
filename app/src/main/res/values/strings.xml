@@ -11,4 +11,5 @@
     <string name="user">User</string>
     <string name="trainer">Trainer</string>
     <string name="trainer_login">Trainer Login</string>
+    <string name="confirm_password">confirm password</string>
 </resources>

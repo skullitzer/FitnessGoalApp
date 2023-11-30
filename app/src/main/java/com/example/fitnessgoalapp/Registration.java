@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.ktx.Firebase;
 
 public class Registration extends AppCompatActivity {
-    TextInputEditText editTextEmail, editTextPassword;
+    TextInputEditText editTextEmail, editTextPassword, editTextConfirmPassword;
     Button buttonReg;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
@@ -45,6 +45,7 @@ public class Registration extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         editTextEmail = findViewById(R.id.email);
         editTextPassword = findViewById(R.id.password);
+        editTextConfirmPassword = findViewById(R.id.confirm_password);
         buttonReg = findViewById(R.id.btn_register);
         progressBar = findViewById(R.id.progressBar);
         textView = findViewById(R.id.loginNow);
@@ -61,9 +62,10 @@ public class Registration extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
-                String email, password;
+                String email, password, confirm_password;
                 email = String.valueOf(editTextEmail.getText());
                 password = String.valueOf(editTextPassword.getText());
+                confirm_password = String.valueOf(editTextConfirmPassword.getText());
 
                 if (TextUtils.isEmpty(email)){
                     Toast.makeText(Registration.this, "Enter email", Toast.LENGTH_SHORT).show();
@@ -72,6 +74,16 @@ public class Registration extends AppCompatActivity {
 
                 if (TextUtils.isEmpty(password)){
                     Toast.makeText(Registration.this, "Enter password", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(confirm_password)) {
+                    Toast.makeText(Registration.this, "Confirm password", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (!password.equals(confirm_password)) {
+                    Toast.makeText(Registration.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
