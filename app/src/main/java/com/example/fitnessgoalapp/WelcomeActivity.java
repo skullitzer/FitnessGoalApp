@@ -10,6 +10,7 @@ import android.widget.Button;
 public class WelcomeActivity extends AppCompatActivity {
     private Button btnUser;
     private Button btnTrainer;
+    private Button btn_sendFeedback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,14 @@ public class WelcomeActivity extends AppCompatActivity {
                 openLoginTrainerActivity();
             }
         });
+
+        btn_sendFeedback = (Button) findViewById(R.id.btn_sendFeedback);
+        btn_sendFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSendFeedbackActivity();
+            }
+        });
     }
 
     public void openLoginActivity(){
@@ -40,6 +49,11 @@ public class WelcomeActivity extends AppCompatActivity {
 
     public void openLoginTrainerActivity(){
         Intent intent = new Intent(this, LoginTrainer.class);
+        startActivity(intent);
+    }
+
+    public void openSendFeedbackActivity(){
+        Intent intent = new Intent(this, SendFeedback.class);
         startActivity(intent);
     }
 }
