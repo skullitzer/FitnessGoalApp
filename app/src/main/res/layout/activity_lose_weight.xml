@@ -1,18 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:padding="16dp">
 
     <!-- User's Name -->
     <TextView
         android:id="@+id/usernameTextView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Jane Doe"
         android:textSize="18sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/messagesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Messages"
+        android:layout_toLeftOf="@+id/searchButton"
+        android:layout_alignBaseline="@+id/searchButton"
+        android:layout_marginEnd="8dp"/>
+
+    <!-- ImageButton to the right of usernameTextView -->
+    <ImageButton
+        android:id="@+id/searchButton"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/icon_search"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="8dp"/>
 
     <!-- Fitness Goal -->
     <TextView
@@ -22,6 +38,7 @@
         android:text="Fitness Goal: Lose Weight"
         android:textSize="16sp"
         android:textColor="@android:color/darker_gray"
+        android:layout_below="@id/usernameTextView"
         android:layout_marginTop="8dp" />
 
     <!-- Workout Tips -->
@@ -31,6 +48,7 @@
         android:layout_height="wrap_content"
         android:text="Workout Tips:\n- Include cardio exercises\n- Follow a balanced diet\n- Stay hydrated"
         android:textSize="16sp"
+        android:layout_below="@id/goalTextView"
         android:layout_marginTop="8dp" />
 
     <!-- Calorie Calculator Button -->
@@ -39,6 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Calorie Calculator"
+        android:layout_below="@id/workoutTipsTextView"
         android:layout_marginTop="16dp" />
 
-</LinearLayout>
+</RelativeLayout>

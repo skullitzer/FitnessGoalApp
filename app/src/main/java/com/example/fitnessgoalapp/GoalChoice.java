@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.fitnessgoalapp.LoseWeightActivity;
+
 public class GoalChoice extends AppCompatActivity {
 
     private TextView titleTextView;
@@ -48,3 +50,4 @@ public class GoalChoice extends AppCompatActivity {
         });
     }
 }
+
