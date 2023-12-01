@@ -8,11 +8,15 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.fitnessgoalapp.LoseWeightActivity;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class GoalChoice extends AppCompatActivity {
 
     private TextView titleTextView;
     private Spinner goalSpinner;
     private Button nextButton;
+    private Button logoutButton; // Add this line
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,7 @@ public class GoalChoice extends AppCompatActivity {
         titleTextView = findViewById(R.id.titleTextView);
         goalSpinner = findViewById(R.id.goalSpinner);
         nextButton = findViewById(R.id.nextButton);
+        logoutButton = findViewById(R.id.logoutButton); // Add this line
 
         // Set an OnClickListener for the nextButton
         nextButton.setOnClickListener(new View.OnClickListener() {
@@ -46,5 +51,21 @@ public class GoalChoice extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // Set an OnClickListener for the logoutButton
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Perform logout actions here
+                // For example, sign out the user and navigate to MainActivity
+                FirebaseAuth.getInstance().signOut();
+
+                Intent intent = new Intent(GoalChoice.this, MainActivity.class);
+                startActivity(intent);
+                finish(); // Close the current activity
+            }
+        });
     }
 }
+
+
