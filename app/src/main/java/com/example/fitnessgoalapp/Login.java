@@ -34,8 +34,8 @@ public class Login extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        if (currentUser != null) {
+            Intent intent = new Intent(getApplicationContext(), GoalChoice.class);
             startActivity(intent);
             finish();
         }
@@ -71,12 +71,12 @@ public class Login extends AppCompatActivity {
                 email = String.valueOf(editTextEmail.getText());
                 password = String.valueOf(editTextPassword.getText());
 
-                if (TextUtils.isEmpty(email)){
+                if (TextUtils.isEmpty(email)) {
                     Toast.makeText(Login.this, "Enter email", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                if (TextUtils.isEmpty(password)){
+                if (TextUtils.isEmpty(password)) {
                     Toast.makeText(Login.this, "Enter password", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -96,7 +96,7 @@ public class Login extends AppCompatActivity {
                                     saveUserDetailsToFirestore(userId, userEmail);
 
                                     Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), UserData.class); // Change to UserInformation activity
+                                    Intent intent = new Intent(getApplicationContext(), GoalChoice.class);
                                     startActivity(intent);
                                     finish();
                                 } else {
